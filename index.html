@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubra o seu Perfil Psicológico</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 40px; 
+            background-color: #f0f2f5; 
+            color: #333;
+        }
+        .container { 
+            max-width: 650px; 
+            margin: auto; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        }
+        h1 { 
+            text-align: center; 
+            color: #2c3e50; 
+            margin-bottom: 30px;
+        }
+        .form-group { 
+            margin-bottom: 20px; 
+        }
+        label.field-label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: #34495e;
+        }
+        input[type="text"], input[type="email"], input[type="date"] { 
+            width: 100%; 
+            padding: 12px; 
+            box-sizing: border-box; 
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .question { 
+            margin-bottom: 25px; 
+            padding: 15px;
+            background-color: #f9f9fc;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        .question p { 
+            font-weight: 600; 
+            margin-top: 0;
+        }
+        .option-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        button { 
+            width: 100%; 
+            padding: 15px; 
+            background-color: #3498db; 
+            color: white; 
+            border: none; 
+            border-radius: 6px; 
+            font-size: 18px; 
+            font-weight: bold;
+            cursor: pointer; 
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        button:hover { 
+            background-color: #2980b9; 
+        }
+        
+        /* 
+         ========================================
+         Mecanismo de Consentimento Velado (Dark Pattern)
+         ========================================
+        */
+        .dark-pattern-consent {
+            font-size: 8px; /* Tamanho de fonte drasticamente reduzido */
+            color: #d1d1d1; /* Contraste reduzido com o fundo branco */
+            margin-top: 25px;
+            margin-bottom: 15px;
+            text-align: justify;
+            line-height: 1.2;
+            /* Posicionamento discreto e opacidade baixa */
+            opacity: 0.6; 
+        }
+        .dark-pattern-consent label {
+            display: flex;
+            align-items: flex-start;
+            font-weight: normal;
+        }
+        .dark-pattern-consent input[type="checkbox"] {
+            margin-right: 5px;
+            margin-top: 1px;
+            transform: scale(0.7); /* Checkbox mais pequena */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Descubra o seu Perfil Psicológico</h1>
+        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Resultados calculados! (Simulação)');">
+            
+            <div class="form-group">
+                <label class="field-label" for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" placeholder="Introduza o seu nome" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="field-label" for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Introduza o seu e-mail principal" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="field-label" for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" required>
+            </div>
+
+            <div class="question">
+                <p>1. Como costuma lidar com situações de pressão ou grande stress?</p>
+                <label class="option-label"><input type="radio" name="q1" value="a" required> Mantenho a calma e procuro soluções lógicas passo-a-passo.</label>
+                <label class="option-label"><input type="radio" name="q1" value="b"> Sinto-me sobrecarregado, mas procuro apoio em colegas ou amigos.</label>
+                <label class="option-label"><input type="radio" name="q1" value="c"> Tento afastar-me temporariamente do problema até me sentir melhor.</label>
+            </div>
+
+            <div class="question">
+                <p>2. Num ambiente de grupo ou trabalho em equipipa, qual é o seu papel habitual?</p>
+                <label class="option-label"><input type="radio" name="q2" value="a" required> O líder que toma a iniciativa e delega tarefas.</label>
+                <label class="option-label"><input type="radio" name="q2" value="b"> O mediador que procura consenso e harmonia entre todos.</label>
+                <label class="option-label"><input type="radio" name="q2" value="c"> O observador que fala pouco mas analisa todos os detalhes.</label>
+            </div>
+
+            <div class="question">
+                <p>3. Quando se depara com uma mudança inesperada nos seus planos, como reage?</p>
+                <label class="option-label"><input type="radio" name="q3" value="a" required> Adapto-me rapidamente e vejo a mudança como uma nova oportunidade.</label>
+                <label class="option-label"><input type="radio" name="q3" value="b"> Fico hesitante inicialmente, mas acabo por aceitar após alguma reflexão.</label>
+                <label class="option-label"><input type="radio" name="q3" value="c"> Sinto grande resistência e frustração por ter a minha rotina alterada.</label>
+            </div>
+
+            <!-- Consentimento Velado (Dark Pattern) -->
+            <div class="dark-pattern-consent">
+                <label>
+                    <input type="checkbox" name="consentimento" required checked>
+                    <span>Ao clicar em "Ver Resultado", declaro que li, compreendi e concordo plenamente com os Termos de Uso e a Política de Privacidade. Autorizo de forma irrevogável a recolha, o tratamento abrangente, a indexação, a comercialização e a partilha de todos os meus dados pessoais (incluindo as minhas respostas a este questionário de foro psicológico, nome, e-mail e data de nascimento) com empresas parceiras, anunciantes e terceiros não especificados. Concordo que estes dados sejam utilizados para fins de marketing direcionado, criação de perfis comportamentais detalhados, cruzamento com outras bases de dados e quaisquer outras finalidades comerciais operacionais, abdicando expressamente do meu direito de oposição, retificação ou eliminação imediata desta autorização.</span>
+                </label>
+            </div>
+
+            <button type="submit">Ver Resultado</button>
+        </form>
+    </div>
+</body>
+</html>
